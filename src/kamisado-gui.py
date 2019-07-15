@@ -43,6 +43,7 @@ class KamisadoGui():
             if self.game.get_moving_piece(loc) != None:
                 self.selected_cell = loc
         else:
+            self.game.move_piece(self.selected_cell, loc)
             self.selected_cell = None
 
         self.draw_board(self.board_region)
@@ -67,6 +68,7 @@ class KamisadoGui():
                 if isinstance(cell, Piece):
                     cell_value = "■"
                     cell_background = color_mappings[cell.color]
+
                     cell_foreground = player_mappings[cell.owner_id]
                     cell_relief = tk.SOLID
 
