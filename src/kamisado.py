@@ -189,6 +189,11 @@ class Kamisado():
             if (_from[1] >= to[1]):
                 return False
 
+        # Is the move in a straight line if its diagonal??
+        vector = (abs(_from[0] - to[0]), abs(_from[1] - to[1]))
+        if vector[0] != 0 and vector[1] != 0 and vector[0] != vector[1]:
+            return False
+
         # Is the path blocked?
         if (self.is_path_blocked(_from, to)):
             return False
